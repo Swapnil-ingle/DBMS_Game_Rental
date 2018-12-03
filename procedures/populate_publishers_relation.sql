@@ -9,6 +9,11 @@ BEGIN
     INSERT INTO Publishers(Name, Country, Publisher_Desc) 
     VALUES (CONCAT(generate_fname(), i), generate_country_name(), "No Description");
     
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
+
     SET i = i + 1;
   END WHILE;
 END$$

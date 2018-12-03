@@ -13,6 +13,11 @@ BEGIN
 	FLOOR(ROUND(RAND()*100,2)),
 	ROUND(RAND()*100,2));
     
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
+
     SET i = i + 1;
   END WHILE;
 END$$

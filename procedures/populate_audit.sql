@@ -9,6 +9,11 @@ BEGIN
     INSERT INTO Audit(Game_ID, Audited_On, Copies_Stocked) 
     VALUES (i+1, FROM_UNIXTIME(UNIX_TIMESTAMP('2014-01-01 01:00:00')+FLOOR(RAND()*31536000)), FLOOR(ROUND(RAND()*100,2)));
     
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
+
     SET i = i + 1;
   END WHILE;
 END$$

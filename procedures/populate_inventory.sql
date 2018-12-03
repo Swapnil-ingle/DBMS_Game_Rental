@@ -9,6 +9,11 @@ BEGIN
     INSERT INTO inventory(Barcode, Game_ID) 
     VALUES (CONCAT("Gaming_", i, "_BAR"), i+1);
     
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
+
     SET i = i + 1;
   END WHILE;
 END$$

@@ -14,6 +14,11 @@ BEGIN
       CONCAT("randomEmail_", i+1, "@gmail.com"),
       CONCAT("Street ", i+1)
     	);
+
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
     
     SET i = i + 1;
   END WHILE;

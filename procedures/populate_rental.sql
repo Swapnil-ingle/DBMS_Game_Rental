@@ -16,6 +16,11 @@ BEGIN
       rented_on_date_var,
       DATE_ADD(rented_on_date_var, INTERVAL FLOOR(ROUND(RAND()*100,2)) DAY)
       );
+
+    IF i % 1000 = 0
+      THEN 
+        COMMIT;
+    END IF;
     
     SET i = i + 1;
   END WHILE;
